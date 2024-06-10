@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <h2>Log In</h2>
+        <form id="loginForm" class="#userinfo">
+            <div class="uname">
+            <label for="Uname">Username:</label><br>
+            <input type="text" id="Uname" name="user" placeholder="Username" required=""><br>
+            </div>
+
+            <div class="email">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Email" required=""><br>
+            </div>
+            
+            <div class="pass">
+            <label for="password">Password:</label><br>
+            <input type="password" name="password" placeholder="Password" required=""><br>
+            </div>
+
+            <div class="remember_box">
+                <div class="remember">
+                    <input type="checkbox">Remember Me
+                </div>
+            </div>
+            <input type="submit" value="Login">
+            <a href="forget-password.html">Forget Password ?</a>
+            <div class="signup">
+                Don't have an account ?  <a href="/signup.html">Signup</a>
+            </div>
+        </form>
+        </div>
+
+        <div class="container hidden" id="userInfo">
+            <h2>User Information</h2>
+            <p>Username: <span id="displayUname"></span></p>
+            <p>Email: <span id="displayEmail"></span></p>
+        </div>  
+        <script>
+            document.getElementById('loginForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var Uname = document.getElementById('Uname').value;
+                var email = document.getElementById('email').value;
+                
+                document.getElementById('displayUname').innerText = Uname;
+                document.getElementById('displayEmail').innerText = email;
+                
+                document.getElementById('loginForm').classList.add('hidden');
+                document.getElementById('userInfo').classList.remove('hidden');
+            });
+        </script>
+</body>
+</html>
